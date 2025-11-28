@@ -1,0 +1,156 @@
+/* ---------- Base (light theme) ---------- */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;                 /* force light */
+  color: #1f2937;                      /* base text */
+  background-color: #f5f7fb;           /* app background */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f5f7fb;
+}
+
+#root {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 12px; }
+
+/* ---------- Links ---------- */
+a {
+  font-weight: 500;
+  color: #2563eb;
+  text-decoration: none;
+}
+a:hover { color: #1d4ed8; }
+
+/* ---------- Buttons ---------- */
+button {
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #ffffff;           /* no black */
+  color: #1f2937;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+button:hover { background-color: #f3f4f6; border-color: #cdd5df; }
+button:focus, button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.35);
+}
+
+/* ---------- Form controls (stable + consistent) ---------- */
+/* Stronger specificity + !important so Bootstrap or defaults can’t override */
+input, select, textarea {
+  width: 100%;
+  background-color: #ffffff !important;   /* keep white always */
+  color: #111827 !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+  font-size: 1rem;
+  outline: none !important;
+  margin: 6px 0 14px !important;
+  transition: border-color .15s ease, box-shadow .15s ease;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #2563eb !important;              /* your brand blue */
+  box-shadow: 0 0 0 3px rgba(37,99,235,.15) !important; /* soft ring */
+}
+
+/* Chrome autofill fix (removes odd fills) */
+input:-webkit-autofill,
+select:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #111827 !important;
+  transition: background-color 5000s ease-in-out 0s; /* prevent flash */
+}
+
+/* Optional: prettier select arrow on some browsers */
+select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #6b7280 50%),
+    linear-gradient(135deg, #6b7280 50%, transparent 50%),
+    linear-gradient(to right, transparent, transparent);
+  background-position:
+    calc(100% - 16px) calc(50% - 3px),
+    calc(100% - 11px) calc(50% - 3px),
+    calc(100% - 2.2em) 50%;
+  background-size: 6px 6px, 6px 6px, 1px 2.6em;
+  background-repeat: no-repeat;
+  padding-right: 2.6em !important;
+}
+
+/* ---------- Form layout helpers ---------- */
+.form-card {
+  max-width: 520px;
+  margin: 24px auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eef2f7;
+}
+.form-row:last-child { border-bottom: 0; }
+
+.form-label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+/* Utility buttons */
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+.btn-primary:hover { background: #1d4ed8; border-color: #1d4ed8; }
+
+.btn-ghost {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+/* Remove any dark-mode overrides */
+@media (prefers-color-scheme: light) { /* intentionally left empty */ }
